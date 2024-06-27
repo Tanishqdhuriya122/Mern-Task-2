@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .invalid-feedback {
+            display: none;
+        }
+        .form-group ~.invalid-feedback {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5"style="background-color: whitesmoke; padding-left: 10%;padding-right: 10%;padding-top: 10%;padding-bottom: 10%;">
+        <form id="myForm" novalidate>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" required>
+                <div class="invalid-feedback">
+                    Name is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" required>
+                <div class="invalid-feedback">
+                    Email is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" required>
+                <div class="invalid-feedback">
+                    Password is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hobbies">Hobbies</label>
+                <select class="form-control" id="hobbies">
+                    <option value="" disabled selected>Select your hobby</option>
+                    <option value="reading">Reading</option>
+                    <option value="traveling">Traveling</option>
+                    <option value="sports">Sports</option>
+                    <option value="music">Music</option>
+                </select>
+            </div>
+            <div align="center">
+            <button type="submit" class="btn btn-danger">Submit</button>
+        </div>
+        </form>
+    </div>
+
+
+    <script>
+    
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+             
+                var forms = document.getElementsByClassName('needs-validation');
+         
+                Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+
+
+            var myForm = document.getElementById('myForm');
+            myForm.addEventListener('submit', function(event) {
+                if (!myForm.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                myForm.classList.add('was-validated');
+            }, false);
+        })();
+    </script>
+</body>
+</html>
