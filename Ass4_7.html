@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Animation</title>
+    <style>
+        
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.animation-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+#train {
+    position: absolute;
+    left: 0;
+    top: 50px;
+}
+
+h2 {
+    color: blue;
+    text-align: center;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="animation-container">
+        <img src="Train.png" alt="Train" id="train">
+    </div>
+    <h2>Click the following buttons to handle animation</h2>
+    <button id="startButton">Start</button>
+    <button id="stopButton">Stop</button>
+    <script>
+        
+let train = document.getElementById('train');
+let startButton = document.getElementById('startButton');
+let stopButton = document.getElementById('stopButton');
+
+let animation;
+
+startButton.addEventListener('click', () => {
+    let position = 0;
+    clearInterval(animation);
+    animation = setInterval(() => {
+        if (position > window.innerWidth) {
+            position = -train.width; 
+        } else {
+            position += 5;
+            train.style.left = position + 'px';
+        }
+    }, 20); 
+});
+
+stopButton.addEventListener('click', () => {
+    clearInterval(animation);
+});
+
+    </script>
+</body>
+</html>
