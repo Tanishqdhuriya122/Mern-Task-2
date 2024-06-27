@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #f3f3f3, #f0d4e4);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh;
+    margin: 0;
+}
+
+.registration-form {
+   background: linear-gradient(to bottom, #f3f3f3, #f0d4e4);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width:40%;
+}
+
+.registration-form h2 {
+    text-align: center;
+    color: #1a1aff;
+}
+
+.registration-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form input[type="password"],
+.registration-form textarea,
+.registration-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.registration-form input[type="radio"] {
+    margin-right: 10px;
+}
+
+.registration-form input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.registration-form .error {
+    color: red;
+    font-size: 12px;
+    display: none;
+}
+
+.registration-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.registration-form button:hover {
+    background-color: #e60000;
+}
+
+    </style>
+</head>
+<body>
+    <div class="registration-form">
+        <h2>Registration form</h2>
+        <form id="regForm" style="width: 90%;">
+            <label>First Name</label>
+            <input type="text" id="firstName" name="firstName">
+            <span class="error" id="firstNameError">POOR</span>
+
+            <label>Last Name</label>
+            <input type="text" id="lastName" name="lastName">
+            <span class="error" id="lastNameError">POOR</span>
+
+            <label>Email</label>
+            <input type="email" id="email" name="email">
+            <span class="error" id="emailError">POOR</span>
+
+            <label>Password</label>
+            <input type="password" id="password" name="password">
+            <span class="error" id="passwordError">POOR</span>
+
+            <label>Re-enter Password</label>
+            <input type="password" id="rePassword" name="rePassword">
+            <span class="error" id="rePasswordError">POOR OR MISMATCH</span>
+
+            <div style="display: inline-flex;">
+            <label>Gender</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            </div>
+
+            <label>Age</label>
+            <input type="text" id="age" name="age">
+            <span class="error" id="ageError">POOR</span>
+
+            <label>Phone Number</label>
+            <input type="text" id="phone" name="phone">
+            <span class="error" id="phoneError">POOR</span>
+
+            <label>Address</label>
+            <textarea id="address" name="address"></textarea>
+            <span class="error" id="addressError">POOR</span>
+
+            <label>State</label>
+            <input type="text" id="state" name="state">
+            <span class="error" id="stateError">POOR</span>
+
+            <label>Country</label>
+            <select id="country" name="country">
+                <option value="">Choose your country</option>
+                <option value="">England</option>
+                <option value="">India</option>
+                <option value="">Germany</option>
+                <option value="">USA</option>
+               
+            </select>
+
+            <label>Languages known</label>
+            <div style="display: flexbox;">
+            <input type="checkbox" id="english" name="language" value="English">English
+            <input type="checkbox" id="kannada" name="language" value="Kannada">Kannada
+            <input type="checkbox" id="hindi" name="language" value="Hindi">Hindi
+            <input type="checkbox" id="telugu" name="language" value="Telugu">Telugu
+        </div>
+
+            <div style="display: inline-block;">
+                <input type="checkbox" id="agree" name="agree"></div>
+                <div style="display: inline-block;">
+                <label for="agree">Hereby I declare all the given details are true</label>
+            </div>
+
+            <button type="submit">REGISTER</button>
+        </form>
+    </div>
+    <script>
+
+document.getElementById("regForm").addEventListener("submit", function(event) {
+    let valid = true;
+
+    
+    const errors = document.querySelectorAll(".error");
+    errors.forEach(error => error.style.display = "none");
+
+    
+    const firstName = document.getElementById("firstName").value;
+    if (firstName === "") {
+        document.getElementById("firstNameError").style.display = "inline";
+        valid = false;
+    }
+
+    
+    const lastName = document.getElementById("lastName").value;
+    if (lastName === "") {
+        document.getElementById("lastNameError").style.display = "inline";
+        valid = false;
+    }
+
+    
+    const email = document.getElementById("email").value;
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+        document.getElementById("emailError").style.display = "inline";
+        valid = false;
+    }
+
+   
+    const password = document.getElementById("password").value;
+    if (password.length < 6) {
+        document.getElementById("passwordError").style.display = "inline";
+        valid = false;
+    }
+
+   
+    const rePassword = document.getElementById("rePassword").value;
+    if (rePassword !== password) {
+        document.getElementById("rePasswordError").style.display = "inline";
+        valid = false;
+    }
+
+   
+    const age = document.getElementById("age").value;
+    if (isNaN(age) || age < 18) {
+        document.getElementById("ageError").style.display = "inline";
+        valid = false;
+    }
+
+    const phone = document.getElementById("phone").value;
+    const phonePattern = /^\d{10}$/;
+    if (!phone.match(phonePattern)) {
+        document.getElementById("phoneError").style.display = "inline";
+        valid = false;
+    }
+
+    
+    const address = document.getElementById("address").value;
+    if (address === "") {
+        document.getElementById("addressError").style.display = "inline";
+        valid = false;
+    }
+
+    
+    const state = document.getElementById("state").value;
+    if (state === "") {
+        document.getElementById("stateError").style.display = "inline";
+        valid = false;
+    }
+
+    
+    if (!valid) {
+        event.preventDefault();
+    }
+});
+
+    </script>
+</body>
+</html>
