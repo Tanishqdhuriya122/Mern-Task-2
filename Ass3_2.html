@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builderz</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar-custom {
+            background-color: #FFD700;
+        }
+        .navbar-custom .navbar-brand {
+            color: #000080;
+            font-weight: bolder;
+            font-size:xx-large
+        }
+        .navbar-custom .nav-link {
+            color: white;
+        }
+        #navbarNav{
+            background-color: #000080;
+        }
+        .hero {
+            background: url("T2.jpg") no-repeat center center;
+            background-size: cover;
+            height: 500px;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .hero h1 {
+            font-size: 3em;
+        }
+        .hero p {
+            font-size: 1.5em;
+        }
+        .features {
+            background-color: #000080;
+            color: #FFD700;
+            padding: 50px 0;
+        }
+        .feature-box {
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-custom" style="display: block;">
+    <a class="navbar-brand" href="#">Builderz</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">ABOUT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">SERVICE</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">TEAM</a>           
+             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">PROJECT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">PAGES</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">CONTACT</a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+            <a href="#" class="btn btn-outline-light">Get A Quote</a>
+        </span>
+    </div>
+</nav>
+
+<div class="hero">
+    <h1>We Are Professional</h1>
+    <p>For Your Dream Project</p>
+    <a href="#" class="btn btn-primary" style="color: white; outline-color: white;">Get A Quote</a>
+</div>
+
+<div class="container-fluid features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 feature-box">
+                <i class="fas fa-user-tie fa-3x"></i>
+                <h3>Expert Worker</h3>
+                <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium ornare velit non.</p>
+            </div>
+            <div class="col-md-4 feature-box" style="background-color:#FFD700 ; color: #000080;padding: 50px 0;">
+                <i class="fas fa-check-circle fa-3x"></i>
+                <h3>Quality Work</h3>
+                <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium ornare velit non.</p>
+            </div>
+            <div class="col-md-4 feature-box">
+                <i class="fas fa-headset fa-3x"></i>
+                <h3>24/7 Support</h3>
+                <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium ornare velit non.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
